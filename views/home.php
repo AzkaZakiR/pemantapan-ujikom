@@ -3,7 +3,13 @@ session_start();
 
 $isLoggedIn = isset($_SESSION['username']);
 
-
+if(isset($_SESSION['message'])) {
+    // Display the alert based on the message type (success or failure)
+    echo '<div class="alert alert-info text-center" role="alert">' . $_SESSION['message'] . '</div>';
+    
+    // Clear the session message after displaying it
+    unset($_SESSION['message']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
